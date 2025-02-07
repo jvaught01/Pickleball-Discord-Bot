@@ -1,6 +1,10 @@
 import discord
 from discord.ext import commands
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
 
 
 intents = discord.Intents.default()
@@ -207,7 +211,7 @@ async def pb_rules(ctx):
     valid_shots = ", ".join(SHOTS.keys())
     
     rules = f"""
-🏓 **Pickleball Discord Game Rules** 🏓
+🏓 **CRBN Pickleball Discord Game Rules** 🏓
 
 **Game Setup:**
 • Challenge someone with `!pb-challenge @player`
@@ -244,6 +248,6 @@ async def on_ready():
     print(f"{bot.user} has connected to Discord!")
 
 # Add your bot token here
-bot.run('MTMzNzI5NjkxNzczODAzMzE4Mw.GX08db.qt7KH_1eMU-9drgPvEeQvyHKlGnA0G-zLzUaZ4')
+bot.run(os.getenv('DISCORD_TOKEN'))
 
 
